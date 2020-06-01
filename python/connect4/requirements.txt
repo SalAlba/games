@@ -1,0 +1,7 @@
+# core ...
+numpy
+pygame==1.9.6
+
+
+# others ...
+sal-timer
