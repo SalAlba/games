@@ -25,9 +25,6 @@ class Constant:
     HEIGHT = (ROW_COUNT + 1) * SQUARESIZE
     SIZE = (WIDTH, HEIGHT)
 
-    # fonts ...
-    # font_1 = pygame.font.SysFont("monospace", 75)
-
     # states ...
     GAME_OVER = False
     PLAYER_TURN = 0
@@ -60,6 +57,8 @@ class Board:
         # const ...
         self.ROW_COUNT = Constant.ROW_COUNT
         self.COLUMN_COUNT = Constant.COLUMN_COUNT
+        # fonts ...
+        self.FONT_1 = pygame.font.SysFont("monospace", 75)
 
         # factor ....
         self.board = self.create_board()
@@ -99,6 +98,7 @@ class Board:
         # pygame.display.update()
 
     def draw_header(self):
+        # ...
         pygame.draw.rect(
             self.screen,
             Constant.BLACK,
@@ -109,6 +109,11 @@ class Board:
                 Constant.SQUARESIZE
             )
         )
+
+        # ...
+        for num in range(Constant.COLUMN_COUNT):
+            label = self.FONT_1.render(str(num), 2222, Constant.RED)
+            self.screen.blit(label, (num * (Constant.WIDTH / Constant.COLUMN_COUNT) + 5, 10))
 
     def draw_rect(self, col, row):
         '''
@@ -181,6 +186,11 @@ class Board:
             ),
             Constant.RADIUS
         )
+
+    def print_winner_player_name(self):
+        text = "Player {} wins!!".format(Constant.PLAYER_TURN)
+        label = self.FONT_1.render(text, Constant.PLAYER_TURN, Constant.RED)
+        self.screen.blit(label, (40, 10))
 
     def drop_piece(self, row, col, piece):
         self.board[row][col] = piece
@@ -319,6 +329,7 @@ class Game:
             print('PLayer {} win !!'.format(Constant.PLAYER_TURN))
             print('<>'*20)
             Constant.GAME_OVER = True
+            self.board.print_winner_player_name()
 
     def check_game_over(self):
         if Constant.GAME_OVER:
@@ -371,6 +382,7 @@ class Game:
             self.handel_action(selected_col_by_player)
 
             # TODO ...
+            self.board.draw_header()
             self.board.refresh()
             self.check_player_turn()
             self.check_game_over()
