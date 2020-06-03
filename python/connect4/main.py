@@ -407,7 +407,7 @@ class Game:
         if len(self.board.possible_moves()) == 0:
             Constant.GAME_OVER = True
             # no more moves, draw!
-            print("No more moves!!!")
+            # print("No more moves!!!")
             self.get_current_player().feedReward(0.1)
             self.get_not_current_player().feedReward(0.2)
 
@@ -484,7 +484,8 @@ def main():
     bot2 = Player('Bot2', isBot=True, isIntelligent=False)
 
     for r in range(50000):
-        print('Round {}'.format(r))
+        if (r % 100 == 0) & (r > 0):
+            print('Round {}'.format(r))
         bots_game = Game(bot1, bot2)
         bots_game.start_game(isTraining=True)
         # reset game
@@ -494,6 +495,8 @@ def main():
 
     bot1.savePolicy()
     bot2.savePolicy()
+
+    print("Training finished, let's play")
 
     # Human VS Bot...
     player1 = Player('Bot1', isBot=True, isIntelligent=False, exp_rate=0)
