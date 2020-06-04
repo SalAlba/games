@@ -4,7 +4,10 @@
 This game was inspierd by GitHub Repo [src [2.1]](#Resources)
 
 ## Authors
-* **Salem Albarudy** - [Website](salem-albarudy.com) | [GitHub](https://github.com/grzegorzbernat) | [Linkedin](https://pl.linkedin.com/in/grzegorzbernat)
+* **Salem Albarudy** - [Website](salem-albarudy.com) | [GitHub](https://github.com/SalAlba) | [Linkedin](https://www.linkedin.com/in/salem-albarudy)
+
+
+* **Pawel Dulak** - [Website](https://handyman.dulare.com/) | [GitHub](https://github.com/pdulak) | [Linkedin](https://pl.linkedin.com/in/pawel-dulak)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
